@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<title>QR Code Business Card Generator</title>
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
+	
+	<!-- Bootstrap core CSS -->
+	<link href=".\bootstrap.min.css" rel="stylesheet">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+	<style>
+	/*
+	 * Globals
+	 */	 
+	 :root{
+		--bs-font-sans-serif: "Open Sans", Calibri, sans-serif, system-ui, -apple-system, "Apple Color Emoji", "Noto Color Emoji";
+		--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+		--bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+		--bs-body-font-family: "Open Sans", Calibri, sans-serif, system-ui, -apple-system, "Apple Color Emoji", "Noto Color Emoji";
+		--bs-body-font-size: 1rem;
+		--bs-body-font-weight: 400;
+		--bs-body-line-height: 1.5;
+		--text-danger: #ce0e2d;
+	 }
+
+	.text-red {
+		color: var(--text-danger);
+	} 
+
+	.text-gold {
+		color: #dbc553;
+	}
+
+	.text-grey {
+		color: #727271;
+	}
+
+	/* Custom default button */
+	.btn-generate {
+		width: 100%;
+	}
+
+	/*
+	 * Base structure
+	 */
+	html,
+	body {
+	  height: 100%;
+	  width: 100%;
+	  background-color: #333;
+	}
+
+	body {
+	  color: #fff;
+	}
+
+	body {
+	  font-family: var(--bs-body-font-family);
+	  font-size: var(--bs-body-font-size);
+	  font-weight: var(--bs-body-font-weight);
+	  line-height: var(--bs-body-line-height);
+	  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	
+	.form-group .row {
+		text-align: left;
+	}
+	</style>
+</head>
+<body class="text-center">
+    <div class="section-container">
+		<main role="main">
+			<div class="container">
+				<div class="">
+					<form action="" method="post">
+						<div class="">
+							<h2>Create IT QRCode Business Cards</h2>
+						</div>
+						<fieldset class="form-group border p-3">
+							<legend class="w-auto px-2">Name</legend>
+							<div class="form-group row">
+								<label for="first_name" class="col-sm-2 col-form-label">First name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="first_name" size="40" value="First Name">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="last_name" class="col-sm-2 col-form-label">Last name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="last_name" size="40" Value="Last Name">
+								</div>
+							</div>
+						</fieldset>
+						<fieldset class="form-group border p-3">
+							<legend class="w-auto px-2">Business Information</legend>
+							<div class="form-group row">
+								<label for="org_title" class="col-sm-2 col-form-label">Job title</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_title" size="40" value="Job title"></input>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_name" class="col-sm-2 col-form-label">Organization</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_name" size="40" value="Org">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_street" class="col-sm-2 col-form-label">Address</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_street" size="40" value="Address">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_city" class="col-sm-2 col-form-label">City</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_city" size="40" value="City">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_region" class="col-sm-2 col-form-label">State</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_region" size="40" value="State">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_post" class="col-sm-2 col-form-label">Zip</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_post" size="40" value="Zip">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_country" class="col-sm-2 col-form-label">Country</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_country" size="40" value="Country">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_tel" class="col-sm-2 col-form-label">Telephone</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_tel" size="40" value="Telephone">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_cell" class="col-sm-2 col-form-label">Cell</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_cell" size="40" value="Cell">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_email" class="col-sm-2 col-form-label">E-mail</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_email" size="40" value="email">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="org_email" class="col-sm-2 col-form-label">Website</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="org_url" size="40" value="website url">
+								</div>
+							</div>
+						</fieldset>
+						<fieldset class="form-group border p-3">
+							<legend class="w-auto px-2">Personal Information</legend>
+							<div class="form-group row">
+								<label for="home_street" class="col-sm-2 col-form-label">Address</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_street" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_city" class="col-sm-2 col-form-label">City</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_city" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_region" class="col-sm-2 col-form-label">Postal code</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_region" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_post" class="col-sm-2 col-form-label">State</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_post" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_country" class="col-sm-2 col-form-label">Country</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_country" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_tel" class="col-sm-2 col-form-label">Telephone</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_tel" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_email" class="col-sm-2 col-form-label">E-mail</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_email" size="40">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="home_url" class="col-sm-2 col-form-label">Website</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="home_url" size="40">
+								</div>
+							</div>
+						</fieldset>
+						<div class="form-group border p-3">
+							<input type="button" name="submit" value="Generate" class="btn btn-primary btn-generate">
+						</div>
+						<div class="border p-3">
+							<h2>vCard output</h2>
+							<textarea name="vcard" cols="100" rows="14"></textarea>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="container">
+				<div class="container">
+					<div id="canvas" style="width:343px; height:600px; background-color: #333; padding: 0;" class="border" >
+						</br>
+						<img alt="TTown Logo" title="TTown Logo" class="bd-placeholder-img bd-placeholder-img-lg" src="smallimage.png"></img>
+						<h2 id="H2_1" class="lead text-gold Agency">Agency</h2>
+						<h1 id="H1_1" class="cover-heading text-gold Name">Name</h1>
+						<h5 id="H5_1" class="text-red bold Department">Department</h5>
+						<h6 id="H6_1" class="text-gold Position">Job Title</h6>
+						<div style="background-color: white; height: 200px; width: 200px; center text-align: center; margin: 0 auto; padding: 5px; justify-content: center">
+							<div id="qrcode1" class="qrcode"></div>
+						</div>
+					</div>
+					<div id="canvas2" style="width:343px; height:600px; background-color: #333; padding: 0;" class="border" >
+						</br>
+						<img alt="TTown Logo 2" title="TTown Logo 2" class="bd-placeholder-img bd-placeholder-img-lg" src="smallimage.png"></img>
+						<div style="background-color: white; height: 200px; width: 200px; center text-align: center; margin: 0 auto; padding: 5px; justify-content: center">
+							<div id="qrcode3" class="qrcode"></div>
+						</div>
+						<h1 id="H1_2" class="cover-heading text-gold Name">Name</h1>
+						<h2 id="H2_2" class="lead text-gold Agency">Agency</h2>
+						<h5 id="H5_2" class="text-red bold Department">Department</h5>
+						<h6 id="H6_2" class="text-gold Position">Position</h6>
+					</div>
+					<div id="canvas3" style="width:343px; height:600px; background-color: #FFFFFF; padding: 0;" class="border" >
+						</br>
+						<img alt="TTown Logo 3" title="TTown Logo 3" class="bd-placeholder-img bd-placeholder-img-lg FileLocation" src="smallimage2.png"></img>
+						<div style="background-color: white; height: 200px; width: 200px; center text-align: center; margin: 0 auto; padding: 5px; justify-content: center">
+							<div id="qrcode2" class="qrcode"></div>
+						</div>
+						<h1 id="H1_3" class="cover-heading text-grey Name">Name</h1>
+						<h2 id="H2_3" class="lead text-grey Agency">Agency</h2>
+						<h5 id="H5_3" class="text-red bold Department">Department</h5>
+						<h6 id="H6_3" class="text-grey Position">Position</h6>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				</br>
+				<div class="container w-100 row">
+					<!-- <div id="image" alt="QRCode 1" title="QRCode 1" class="col-sm"></div> -->
+					<div id="image2"  alt="Dark Background" title="Dark Background" class="col-sm"></div>
+					<div id="image3" alt="Light Background" title="Light Background" class="col-sm"></div>
+				</div>
+				</br>
+			</div>
+		</main>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="bootstrap.bundle.min.js" ></script>
+	<script src="html2canvas.js"></script>
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+	<script>
+		
+		/**
+		* TODO:
+		* - add picture and company logo
+		*/
+		var vcard= {
+			str_start:'BEGIN:VCARD\nVERSION:3.0\n',
+			str_vcard:'BEGIN:VCARD\nVERSION:3.0\n',
+			str_end:'\nEND:VCARD',
+			goog_chart:'http://chart.googleapis.com/chart?cht=qr&chs=400x400&chld=H&chl=',
+			form:[],
+			get_field: function(field){
+				for(var i in vcard.form){
+					if(vcard.form[i].name === field){ 
+						return vcard.form[i].value.replace(/^\s+|\s+$/g,"");
+					}
+				}
+			},
+			add_you: function(){
+				var first_name = vcard.get_field("first_name"),
+					last_name = vcard.get_field("last_name");
+					vcard.str_vcard += 'N:'+last_name+';'+first_name+'\n'+
+									'FN:'+first_name+' '+last_name;
+			},
+			add_address: function(){
+				var home_street = vcard.get_field("home_street"),
+					home_city = vcard.get_field("home_city"),
+					home_region = vcard.get_field("home_region"),
+					home_post = vcard.get_field("home_post"),
+					home_country = vcard.get_field("home_country"),
+					org_street = vcard.get_field("org_street"),
+					org_city = vcard.get_field("org_city"),
+					org_region = vcard.get_field("org_region"),
+					org_post = vcard.get_field("org_post"),
+					org_country = vcard.get_field("org_country");
+				
+				if(home_street+home_city+home_region+home_post+home_country !== ''){
+					vcard.str_vcard += '\nADR;TYPE=Personal Address:;;'+home_street+';'+home_city+';'+home_region+
+									';'+home_post+';'+home_country;
+				}
+				if(org_street+org_city+org_region+org_post+org_country !== ''){
+					vcard.str_vcard += '\nADR;TYPE=Business Address:;;'+org_street+';'+org_city+';'+org_region+
+									';'+org_post+';'+org_country;
+				}
+			  }, 
+			add_tel: function(){
+			 var home = vcard.get_field("home_tel"),
+				 work = vcard.get_field("org_tel")
+				 workcell = vcard.get_field("org_cell");
+				
+				if(home !== ''){ vcard.str_vcard += '\nTEL;TYPE=Personal Phone:'+home; }
+				
+				if(work !== ''){ vcard.str_vcard += '\nTEL;TYPE=Business Phone:'+work; }
+				
+				if(workcell !== ''){ vcard.str_vcard += '\nTEL;TYPE=Business Cell:'+workcell; }
+			},
+			add_email: function(){
+			   var home = vcard.get_field("home_email"),
+				 work = vcard.get_field("org_email");
+				
+				if(home !== ''){ vcard.str_vcard += '\nEMAIL;TYPE=Personal Email:'+home; }
+				
+				if(work !== ''){ vcard.str_vcard += '\nEMAIL;TYPE=Business Email:'+work; }
+			},
+			add_url: function(){
+			   var home = vcard.get_field("home_url"),
+				 work = vcard.get_field("org_url");
+				
+				if(home !== ''){ vcard.str_vcard += '\nURL;TYPE=Personal Url:'+home; }
+				
+				if(work !== ''){ vcard.str_vcard += '\nURL;TYPE=Business Url:'+work; }
+			},
+			add_work: function(){
+			   var name = vcard.get_field("org_name"),
+				   title = vcard.get_field("org_title");
+				
+				if(name !== ''){ vcard.str_vcard += '\nORG:'+name; }
+				
+				if(title !== ''){ vcard.str_vcard +='\nTITLE:'+title; }
+			},
+			required_check: function(){
+				var first_name = vcard.get_field("first_name"),
+					last_name = vcard.get_field("last_name"),
+					msg = 'Field%FIELD% %NAME% %VERB% required.',
+					fields = [];
+				
+				if(first_name === ''){ fields.push('First name'); }
+				
+				if(last_name === ''){ fields.push('Last name'); }
+				
+				if(fields.length === 0){ return ''; }
+				
+				msg = msg.replace('%NAME%',fields.join(', '));
+				
+				msg = msg.replace('%FIELD%',(fields.length === 1) ? '' : 's');
+				
+				msg = msg.replace('%VERB%',(fields.length === 1) ? 'is' : 'are'); 
+					
+				return msg;
+			},
+			save: function(){
+				vcard.form = $('form').serializeArray();
+				
+				var required_check_output = vcard.required_check();
+				
+				if(required_check_output !== ''){
+					alert(required_check_output);
+					return;
+				}
+				
+				vcard.add_you();
+				
+				vcard.add_address();
+				
+				vcard.add_tel();
+				
+				vcard.add_email();
+				
+				vcard.add_url();
+				
+				vcard.add_work();
+				
+				vcard.str_vcard += vcard.str_end;
+				
+				$('textarea[name="vcard"]').val(vcard.str_vcard);
+			 
+				//$('#qr').attr('src',vcard.goog_chart+vcard.str_vcard.replace(/\n/g,'%0A'));
+				
+				vcard.str_vcard = vcard.str_start;
+
+				ClearAllCards();
+				RefreshCards();
+				CreateImages();
+			}
+		};
+
+		function RefreshCards(){
+			var vcardValue = $('textarea[name="vcard"]').val();
+			
+			var orgName = vcard.get_field("org_name"),
+				orgTitle = vcard.get_field("org_title"),
+				Name = vcard.get_field("first_name") + " " + vcard.get_field("last_name");
+			
+			<!-- $("#canvas").show(); -->
+			$("#canvas2").show();
+			$("#canvas3").show();
+			
+			$("#H1_1").text(Name);
+			$("#H1_2").text(Name);
+			$("#H1_3").text(Name);
+			
+			$("#H2_1").text(orgName);
+			$("#H2_2").text(orgName);
+			$("#H2_3").text(orgName);
+			
+			$("#H6_1").text(orgTitle);
+			$("#H6_2").text(orgTitle);
+			$("#H6_3").text(orgTitle);
+			
+			<!-- var qrcode1 = new QRCode(document.getElementById("qrcode1"), { -->
+				<!-- width: 190, -->
+				<!-- height: 190, -->
+				<!-- colorDark: "#000000", -->
+				<!-- colorLight: "#ffffff", -->
+				<!-- correctionLevel: QRCode.CorrectLevel.H -->
+			<!-- }); -->
+			var qrcode2 = new QRCode(document.getElementById("qrcode2"), {
+				width: 190,
+				height: 190,
+				colorDark: "#000000",
+				colorLight: "#ffffff",
+				correctionLevel: QRCode.CorrectLevel.H
+			});
+			var qrcode3 = new QRCode(document.getElementById("qrcode3"), {
+				width: 190,
+				height: 190,
+				colorDark: "#000000",
+				colorLight: "#ffffff",
+				correctionLevel: QRCode.CorrectLevel.H
+			});
+			
+			<!-- qrcode1.makeCode(vcardValue); -->
+			qrcode2.makeCode(vcardValue);
+			qrcode3.makeCode(vcardValue);
+		};
+		
+		function CreateImages()
+		{
+			<!-- html2canvas(document.querySelector("#canvas"), { -->
+					<!-- x: 0, -->
+					<!-- y: 0, -->
+				<!-- }).then(function(canvas) { -->
+				<!-- document.querySelector("#image").appendChild(canvas); -->
+			<!-- }); -->
+			html2canvas(document.querySelector("#canvas2"), {
+					x: 0,
+					y: 0,
+				}).then(function(canvas) {
+				document.querySelector("#image2").appendChild(canvas);
+			});
+			html2canvas(document.querySelector("#canvas3"), {
+					x: 0,
+					y: 0,
+				}).then(function(canvas) {
+				document.querySelector("#image3").appendChild(canvas);
+			});
+
+			$("#canvas").hide();
+			$("#canvas2").hide();
+			$("#canvas3").hide();
+		};
+
+		$(function(){
+			//RefreshCards();
+			$('input[name="submit"]').click(vcard.save);
+
+			$("#canvas").hide();
+			$("#canvas2").hide();
+			$("#canvas3").hide();
+		});
+		
+		function ClearAllCards(){
+			$("#image1").empty();
+			$("#image2").empty();
+			$("#image3").empty();
+			$('#qrcode1').empty();
+			$('#qrcode2').empty();
+			$('#qrcode3').empty();
+		};
+	</script>
+</body>
+</html>
